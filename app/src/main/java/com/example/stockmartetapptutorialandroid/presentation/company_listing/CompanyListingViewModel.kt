@@ -53,14 +53,14 @@ class CompanyListingViewModel @Inject constructor(
                             _state.update {
                                 it.copy(
                                     error = resource.message,
-                                    isLoading = false
                                 )
                             }
                         }
                         is Resource.Loading -> {
                             _state.update {
                                 it.copy(
-                                    isLoading = resource.isLoading
+                                    isLoading = resource.isLoading,
+                                    error = null
                                 )
                             }
                         }
@@ -68,8 +68,6 @@ class CompanyListingViewModel @Inject constructor(
                             resource.data?.let{ data ->
                                 _state.update {
                                     it.copy(
-                                        error = null,
-                                        isLoading = false,
                                         companyListing = data
                                     )
                                 }

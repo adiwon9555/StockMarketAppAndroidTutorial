@@ -3,6 +3,7 @@ package com.example.stockmartetapptutorialandroid.data.local
 import androidx.room.Dao
 import androidx.room.Query
 import androidx.room.Upsert
+import com.example.stockmartetapptutorialandroid.data.local.entities.CompanyListingEntity
 
 @Dao
 interface StockDao {

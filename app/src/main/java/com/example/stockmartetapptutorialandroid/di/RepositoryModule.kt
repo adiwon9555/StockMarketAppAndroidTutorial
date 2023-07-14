@@ -2,8 +2,10 @@ package com.example.stockmartetapptutorialandroid.di
 
 import com.example.stockmartetapptutorialandroid.data.csv.CSVParser
 import com.example.stockmartetapptutorialandroid.data.csv.CompanyListingCsvParser
+import com.example.stockmartetapptutorialandroid.data.csv.IntradayInfoCsvParser
 import com.example.stockmartetapptutorialandroid.data.repository.StockRepositoryImpl
 import com.example.stockmartetapptutorialandroid.domain.model.CompanyListing
+import com.example.stockmartetapptutorialandroid.domain.model.IntradayInfo
 import com.example.stockmartetapptutorialandroid.domain.repository.StockRepository
 import dagger.Binds
 import dagger.Module
@@ -14,6 +16,12 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 abstract class RepositoryModule {
+
+    @Binds
+    @Singleton
+    abstract fun bindIntradayInfoCsvParser(
+        intradayInfoCsvParser: IntradayInfoCsvParser
+    ) : CSVParser<IntradayInfo>
 
     @Binds
     @Singleton

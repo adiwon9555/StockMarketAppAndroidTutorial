@@ -10,7 +10,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.stockmartetapptutorialandroid.presentation.company_listing.NavGraphs
+import com.example.stockmartetapptutorialandroid.presentation.NavGraphs
 import com.example.stockmartetapptutorialandroid.ui.theme.StockMartetAppTutorialAndroidTheme
 import com.ramcosta.composedestinations.DestinationsNavHost
 import com.ramcosta.composedestinations.annotation.NavGraph

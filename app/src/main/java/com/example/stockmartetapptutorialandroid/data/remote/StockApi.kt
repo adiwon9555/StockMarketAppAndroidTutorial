@@ -1,18 +1,33 @@
 package com.example.stockmartetapptutorialandroid.data.remote
 
+import com.example.stockmartetapptutorialandroid.data.remote.dto.CompanyInfoDto
 import okhttp3.ResponseBody
 import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface StockApi {
 
+    companion object{
+        const val API_KEY = "8QI7Z8PZV3W08K2Q"
+        const val BASE_URL = "https://alphavantage.co"
+    }
+
     @GET("query?function=LISTING_STATUS")
     suspend fun getAllCompaniesList(
         @Query("apikey") apikey : String = API_KEY
     ) : ResponseBody
 
-    companion object{
-        const val API_KEY = "8QI7Z8PZV3W08K2Q"
-        const val BASE_URL = "https://alphavantage.co"
-    }
+    @GET("query?function=TIME_SERIES_INTRADAY&interval=60min&datatype=csv")
+    suspend fun getIntradayInfoForCompany(
+        @Query("symbol") symbol : String,
+        @Query("apikey") apikey : String = API_KEY
+    ) : ResponseBody
+
+    @GET("query?function=OVERVIEW")
+    suspend fun getCompanyInfo(
+        @Query("symbol") symbol : String,
+        @Query("apikey") apikey : String = API_KEY
+    ) : CompanyInfoDto
+
+
 }
